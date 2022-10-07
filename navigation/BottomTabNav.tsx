@@ -3,10 +3,10 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import useColorScheme from '../hooks/useColorScheme';
 import Colors from '../constants/Colors';
-import TabOneScreen from '../screens/TabOneScreen';
 import { RootTabParamList } from '../types';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import TabTwoScreen from '../screens/TabTwoScreen';
+import HomeScreen from '../screens/HomeScreen';
 
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
@@ -52,7 +52,7 @@ const BottomTabNav = () => {
         },
       })}
     >
-      <BottomTab.Screen name="Home" component={TabOneScreen} />
+      <BottomTab.Screen name="Home" component={HomeScreen} />
       <BottomTab.Screen name="Upcoming" component={TabTwoScreen} />
       <BottomTab.Screen name="Search" component={TabTwoScreen} />
       <BottomTab.Screen name="Downloads" component={TabTwoScreen} />
