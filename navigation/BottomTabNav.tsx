@@ -5,7 +5,7 @@ import useColorScheme from '../hooks/useColorScheme';
 import Colors from '../constants/Colors';
 import TabOneScreen from '../screens/TabOneScreen';
 import { RootTabParamList } from '../types';
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import TabTwoScreen from '../screens/TabTwoScreen';
 
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
@@ -18,30 +18,31 @@ const BottomTabNav = () => {
       initialRouteName="Home"
       screenOptions={({ route }) => ({
         tabBarActiveTintColor: Colors[colorScheme].tint,
+        tabBarInactiveTintColor: 'white',
         tabBarStyle: {
           elevation: 0,
           borderTopWidth: 0,
         },
-        tabBarIcon: ({ color, size }) => {
-          let iconName: any;
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName: any; //TODO: replace any wth the correct types
           switch (route.name) {
             case 'Home':
-              iconName = 'home';
+              iconName = focused ? 'home' : 'home-outline';
               break;
-            case 'Coming_Soon':
-              iconName = 'video-library';
+            case 'Upcoming':
+              iconName = focused ? 'calendar-month' : 'calendar-month-outline';
               break;
             case 'Search':
-              iconName = 'search';
+              iconName = focused ? 'magnify-plus-outline' : 'magnify';
               break;
             case 'Downloads':
-              iconName = 'file-download';
+              iconName = focused ? 'download' : 'download-outline';
             default:
               break;
           }
 
           return (
-            <MaterialIcons
+            <MaterialCommunityIcons
               name={iconName}
               color={color}
               size={size}
@@ -52,11 +53,7 @@ const BottomTabNav = () => {
       })}
     >
       <BottomTab.Screen name="Home" component={TabOneScreen} />
-      <BottomTab.Screen
-        name="Coming_Soon"
-        component={TabTwoScreen}
-        options={{ title: 'Coming Soon' }}
-      />
+      <BottomTab.Screen name="Upcoming" component={TabTwoScreen} />
       <BottomTab.Screen name="Search" component={TabTwoScreen} />
       <BottomTab.Screen name="Downloads" component={TabTwoScreen} />
     </BottomTab.Navigator>
