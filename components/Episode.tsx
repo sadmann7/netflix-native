@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -11,11 +11,24 @@ type EpisodeProps = {
     plot: string;
     video: string;
   };
+  setCurrentEpisode: React.Dispatch<
+    React.SetStateAction<{
+      id: string;
+      title: string;
+      poster: string;
+      duration: string;
+      plot: string;
+      video: string;
+    }>
+  >;
 };
 
-const Episode = ({ episode }: EpisodeProps) => {
+const Episode = ({ episode, setCurrentEpisode }: EpisodeProps) => {
   return (
-    <View style={{ margin: 10 }}>
+    <TouchableOpacity
+      style={{ margin: 10 }}
+      onPress={() => setCurrentEpisode(episode)}
+    >
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         <Image
           style={{ marginRight: 5, width: 125, aspectRatio: 16 / 9 }}
@@ -34,7 +47,7 @@ const Episode = ({ episode }: EpisodeProps) => {
         />
       </View>
       <Text style={{ marginTop: 5, color: 'white' }}>{episode.plot}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
