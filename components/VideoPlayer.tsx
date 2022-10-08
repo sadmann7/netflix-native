@@ -15,7 +15,7 @@ type VideoPlayerProps = {
 };
 
 const VideoPlayer = ({ episode }: VideoPlayerProps) => {
-  const video = useRef<Playback>(null);
+  const video = useRef<any>(null);
   const [status, setStatus] = useState<any>({});
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const VideoPlayer = ({ episode }: VideoPlayerProps) => {
         ref={video}
         style={styles.video}
         source={{
-          uri: 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
+          uri: episode.video,
         }}
         useNativeControls
         resizeMode="contain"
