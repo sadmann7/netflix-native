@@ -1,18 +1,13 @@
 import { StyleSheet, View, Text, Image, FlatList } from 'react-native';
 import categories from '../assets/data/categories';
-
-const firstCategory = categories.items[0];
+import SeriesList from '../components/SeriesList';
 
 const HomeScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Popular or Netflix</Text>
       <FlatList
-        data={firstCategory.movies}
-        renderItem={({ item }) => (
-          <Image source={{ uri: item.poster }} style={styles.img} />
-        )}
-        horizontal={true}
+        data={categories.items}
+        renderItem={({ item }) => <SeriesList category={item} />}
         keyExtractor={(item) => item.id}
       />
     </View>

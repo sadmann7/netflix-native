@@ -5,8 +5,10 @@ import useColorScheme from '../hooks/useColorScheme';
 import Colors from '../constants/Colors';
 import { RootTabParamList } from '../types';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import TabTwoScreen from '../screens/TabTwoScreen';
 import HomeScreen from '../screens/HomeScreen';
+import UpcomingScreen from '../screens/UpcomingScreen';
+import SearchScreen from '../screens/SearchScreen';
+import DownloadsScreen from '../screens/DownloadsScreen';
 
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
@@ -53,9 +55,9 @@ const BottomTabNav = () => {
       })}
     >
       <BottomTab.Screen name="Home" component={HomeScreen} />
-      <BottomTab.Screen name="Upcoming" component={TabTwoScreen} />
-      <BottomTab.Screen name="Search" component={TabTwoScreen} />
-      <BottomTab.Screen name="Downloads" component={TabTwoScreen} />
+      <BottomTab.Screen name="Upcoming" component={UpcomingScreen} />
+      <BottomTab.Screen name="Search" component={SearchScreen} />
+      <BottomTab.Screen name="Downloads" component={DownloadsScreen} />
     </BottomTab.Navigator>
   );
 };

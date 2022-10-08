@@ -8,6 +8,7 @@ import * as React from 'react';
 import { ColorSchemeName } from 'react-native';
 
 import NotFoundScreen from '../screens/NotFoundScreen';
+import SeriesDetailsScreen from '../screens/SeriesDetailsScreen';
 
 import { RootStackParamList } from '../types';
 import BottomTabNav from './BottomTabNav';
@@ -30,7 +31,7 @@ export default function Navigation({
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-function RootNavigator() {
+const RootNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -39,10 +40,15 @@ function RootNavigator() {
         options={{ headerShown: false }}
       />
       <Stack.Screen
+        name="SeriesDetails"
+        component={SeriesDetailsScreen}
+        options={{ title: 'Series Details' }}
+      />
+      <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}
         options={{ title: 'Oops!' }}
       />
     </Stack.Navigator>
   );
-}
+};
