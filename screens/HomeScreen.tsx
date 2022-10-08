@@ -1,13 +1,13 @@
 import { StyleSheet, View, Text, Image, FlatList } from 'react-native';
 import categories from '../assets/data/categories';
-import SeriesList from '../components/SeriesList';
+import Series from '../components/Series';
 
 const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <FlatList
         data={categories.items}
-        renderItem={({ item }) => <SeriesList category={item} />}
+        renderItem={({ item }) => <Series category={item} />}
         keyExtractor={(item) => item.id}
       />
     </View>

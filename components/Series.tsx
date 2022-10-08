@@ -9,7 +9,7 @@ import {
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 
-type SeriesListProps = {
+type SeriesProps = {
   category: {
     id: string;
     title: string;
@@ -20,7 +20,7 @@ type SeriesListProps = {
   };
 };
 
-const SeriesList = ({ category }: SeriesListProps) => {
+const Series = ({ category }: SeriesProps) => {
   const navigation = useNavigation();
 
   return (
@@ -43,7 +43,7 @@ const SeriesList = ({ category }: SeriesListProps) => {
   );
 };
 
-export default SeriesList;
+export default Series;
 
 const styles = StyleSheet.create({
   title: {
